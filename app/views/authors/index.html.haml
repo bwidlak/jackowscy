@@ -1,0 +1,10 @@
+%h2 Listing authors
+
+= link_to 'New Author', new_author_path
+
+- @authors.each do |author|
+  %h3= link_to author.name, author
+  = link_to 'Edit', edit_author_path(author)
+  = link_to 'Destroy', author, confirm: 'Are you sure?', method: :delete
+
+%br/

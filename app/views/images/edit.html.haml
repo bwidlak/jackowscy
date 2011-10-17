@@ -1,0 +1,16 @@
+%h1 Editing image
+
+= simple_form_for(@image, :url => project_image_path(@project)) do |f|
+
+  = f.input :img_url
+  = f.input :square_url
+  = f.input :thumbnail_url
+  = f.input :small_url
+  = f.input :medium_url
+  = f.input :large_url
+  = f.input :status
+  = f.button :submit
+
+= link_to 'Show', @image
+|
+= link_to 'Back', @project

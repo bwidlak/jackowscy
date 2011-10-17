@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  img_url: MyString
+  status: false
+
+two:
+  project_id: 1
+  img_url: MyString
+  status: false

@@ -1,0 +1,59 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @project.name
+
+%p
+  %b Description:
+  = @project.description
+  
+%p
+  %b Created at:
+  = @project.created_at
+
+%p
+  %b Last update:
+  = @project.updated_at
+
+%p
+  %b Price:
+  = @project.price
+
+%p
+  %b Status:
+  = @project.status
+
+%p
+  %b Home:
+  = @project.home
+
+%p
+  %b Author:
+  = @project.author.name
+
+= link_to 'Edit', edit_project_path(@project)
+|
+= link_to 'Back', projects_path
+|
+%h3= link_to 'Add new Img to project', new_project_image_path(@project)
+
+%h3 Categories that project belongs to
+
+%ul
+  - for category in @project.categories
+    %li= category.name
+    
+
+
+List images
+%ul
+  - @images.each do |image|
+    %li
+      = link_to image_tag(image.square_url, :alt => @project.name, :size => '75x75'), image.img_url, :rel => "facebox"
+      %br/
+      Edit img:
+      = link_to 'Edit img', edit_project_image_path(@project, image)
+      %br/
+      Delete img:
+      = link_to 'Destroy', project_image_path(@project, image), confirm: 'Are you sure?', method: :delete

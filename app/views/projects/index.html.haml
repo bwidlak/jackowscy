@@ -1,0 +1,35 @@
+%h2 Listing projects
+-if user_signed_in?
+  = link_to 'New Project', new_project_path
+
+= will_paginate @projects
+
+- @projects.each do |project|
+  %h3= link_to project.name, project
+  %ul
+    %li
+      = image_tag(project.images.first.square_url, :size => '75x75', :alt => 'project.name')
+    %li
+      %b Description
+      = project.description
+    %li
+      %b Price
+      = project.price
+    %li
+      %b Status:
+      = project.status
+    %li
+      %b Home:
+      = project.home
+    %li
+      %b Author:
+      = project.author.name
+    %li
+      = link_to 'Edit', edit_project_path(project)
+      |
+      = link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete
+  %hr/
+
+= will_paginate @projects
+
+%br/

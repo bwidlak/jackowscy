@@ -1,0 +1,19 @@
+= simple_form_for @project  do |f|
+  
+  = f.input :name
+  = f.input :description
+  = f.input :price
+  = f.input :status
+  = f.input :home
+  = f.association :author
+
+  %h2 Zdefiniuj kategorie do ktorych przynalezy projekt
+  %ul
+    - for category in @categories
+      %li
+        = check_box_tag "category_ids[]", category.id, checked = (@project.categories.include? category ? false : true)
+        = category.name
+  
+  = link_to "New author", new_author_path
+  
+  = f.button :submit
