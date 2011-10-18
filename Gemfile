@@ -1,5 +1,5 @@
-source 'http://rubygems.org'
-
+source :gemcutter
+gem 'sinatra', '1.0'
 gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:
@@ -10,7 +10,7 @@ gem 'simple_form'
 gem 'heroku'
 
 # database stuff
-
+gem 'pg', '0.11.0'
 gem 'mysql2'
 
 #frontend-stuff
