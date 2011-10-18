@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
   
   before_filter :load_categories
+  before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
-    @categories = Category.all
   end
 
   def show
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
 
     if @category.save
-      redirect_to @category
+      redirect_to categories_path
       flash[:notice] = "Category was successfully created."
     else
       render action: "new"
@@ -33,14 +33,12 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
 
-    respond_to do |format|
-      if @category.update_attributes(params[:category])
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
+    if @category.update_attributes(params[:category])
+      redirect_to @category
+      flash[:notice] = 'Category was successfully updated.'
+    else
+      render action: "edit"
+      flash[:error] = @category.errors
     end
   end
 

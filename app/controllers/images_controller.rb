@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
 
   before_filter :load_projects
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     @images = Image.all
