@@ -9,7 +9,7 @@ class CreateImages < ActiveRecord::Migration
     end
   end
   
-  def self.up
+  def self.down
     drop_table :images
   end
 end
