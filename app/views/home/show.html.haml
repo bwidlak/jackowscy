@@ -1,7 +1,52 @@
-%h2 Dostępne kategorie
-%ul
-  - @categories.each do |category|
-    %li= link_to category.name, category
+%h2 Project wizzard
+
+%ol
+  %li
+    - if @categories.blank?
+      Create 
+      = link_to "Categories", categories_path
+    - else
+      %span{ :style => 'color:green;'}
+        OK:
+      Categories created. Do you want to add next
+      = link_to "Category", new_category_path
+      ?
+      %br/
+      %span{ :style => 'color: grey;font-size: 10px;'}Already created categories:
+      - @categories.each do |category|
+        %span{ :style => 'color: grey; font-style: italic;'}= link_to category.name, category      
+  %li
+    - if Author.all.blank?
+      Create
+      = link_to "Authors", authors_path
+    - else
+      %span{ :style => 'color:green;'}
+        OK:
+      Author created. Do you want to add next author
+      = link_to "Author", new_author_path
+      ?
+      %br/
+      %span{ :style => 'color: gray;font-size: 10px;'}Already created authors:
+      - Author.all.each do |author|
+        %span{ :style => 'color: grey; font-style: italic;'}= link_to author.name, author
+  %li
+    - if Project.all.blank?
+      Create
+      = link_to "Project", projects_path
+    - else
+      %span{ :style => 'color:green;'}
+        OK:
+      Project created. Do you want to add next
+      = link_to "project", new_author_path
+      ?
+      %br/
+      %span{ :style => 'color: gray;font-size: 10px;'}Already created projects:
+      %ul
+        - Project.all.each do |project|
+          %li
+            %span{ :style => 'color: grey; font-style: italic;'}= link_to project.name, project
+      
+    
 
 %h2 Projekty widoczne na stronie głównej
 
