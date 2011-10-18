@@ -9,6 +9,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'heroku'
 
+gem 'rack', '1.3.3'
+
 # database stuff
 gem 'pg', '0.11.0'
 gem 'mysql2'
