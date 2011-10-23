@@ -1,0 +1,9 @@
+.project
+  %a{:href => "/projects/#{(project.id)}", :style => "background: url(#{project.images.first.img_url})"}
+    .badge
+      .author
+        = project.author.name
+      .name
+        = project.name        
+      .price
+        = project.price
