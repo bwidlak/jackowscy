@@ -5,13 +5,19 @@
 = will_paginate @projects
 
 - @projects.each do |project|
-  %h3= link_to project.name, project
+  %h3
+    = project.id
+    = link_to project.name, project
   %ul
-    %li
-      = image_tag(project.images.first.square_url, :size => '75x75', :alt => 'project.name')
+    - unless project.images.blank?
+      %li
+        = image_tag(project.images.first.img_url, :size => '75x75', :alt => 'project.name')
     %li
       %b Description
       = project.description
+    %li
+      %b Frame size:
+      = project.size
     %li
       %b Price
       = project.price

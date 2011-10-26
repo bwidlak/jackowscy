@@ -45,15 +45,15 @@
         - Project.all.each do |project|
           %li
             %span{ :style => 'color: grey; font-style: italic;'}= link_to project.name, project
-      
-    
+
+#categories      
+  %ul    
+    - @categories.each do |category|
+      %li{ :style => 'color: grey; font-style: italic;'}= link_to category.name, category
+
 
 %h2 Projekty widoczne na stronie głównej
 
-%ul
-  - @visible_projects.each do |project|
-    %li
-      = project.name
-      %a{:href => "/projects/#{(project.id)}", :style => "background: url(#{project.images.first.img_url}) no-repeat 50% 50%; width:255px;height:255px;display:block;"}
-
+- @visible_projects.each do |project|
+  = render :partial => 'project', :locals => { :project => project}
 = will_paginate @visible_projects

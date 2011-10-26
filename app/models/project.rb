@@ -7,9 +7,15 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :author
   
+  before_destroy :find_and_delete_all_assertions
+  
   self.per_page = 10
 
   def only_visible
+  end
+
+  def find_and_delete_all_assertions
+    self.images.destroy_all
   end
 
 end

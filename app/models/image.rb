@@ -27,9 +27,6 @@ class Image < ActiveRecord::Base
     '_m.jpg'
   end
 
-  def base_ext #375x500
-  end
-
   def medium_ext #480x640
     '_z.jpg'
   end

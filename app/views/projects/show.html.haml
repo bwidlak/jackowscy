@@ -11,7 +11,9 @@
 %p
   %b Created at:
   = @project.created_at
-
+%p
+  %b Frame size:
+  = @project.size
 %p
   %b Last update:
   = @project.updated_at
@@ -43,8 +45,6 @@
 %ul
   - for category in @project.categories
     %li= category.name
-    
-
 
 List images
 %ul

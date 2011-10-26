@@ -2,13 +2,13 @@
 
 = simple_form_for(@image, :url => project_image_path(@project)) do |f|
 
-  = f.input :img_url
-  = f.input :square_url
-  = f.input :thumbnail_url
-  = f.input :small_url
-  = f.input :medium_url
-  = f.input :large_url
-  = f.input :status
+  = f.input :img_url, :hint => 'no hooks'
+  = f.input :square_url, :hint => 'hook: _s.jpg'
+  = f.input :thumbnail_url, :hint => 'hook: _t.jpg'
+  = f.input :small_url, :hint => 'hook: _m.jpg'
+  = f.input :medium_url, :hint => 'hook: _z.jpg'
+  = f.input :large_url, :hint => 'hook: _b.jpg'
+  = f.input :status, :hint => 'Show this img in project for normal users', :label => 'Visible?'
   = f.button :submit
 
 = link_to 'Show', @image
