@@ -10,8 +10,6 @@ gem 'simple_form'
 gem 'heroku'
 
 # managing DB on heroku
-gem "taps"
-
 gem 'rack', '1.3.3'
 
 # database stuff
@@ -22,6 +20,7 @@ end
 
 group :development do
   gem 'mysql2'
+  gem "taps"
 end
 
 #frontend-stuff
