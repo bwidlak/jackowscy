@@ -15,8 +15,14 @@ gem "taps"
 gem 'rack', '1.3.3'
 
 # database stuff
-gem 'pg', '0.11.0'
-gem 'mysql2'
+
+group :production do
+  gem 'pg', '0.11.0'
+end
+
+group :development do
+  gem 'mysql2'
+end
 
 #frontend-stuff
 gem "haml", "~> 3.1.2"
