@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   
-  before_filter :load_categories
+  before_filter :load_categories, :except => [:show]
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @projects = @category.projects
   end
 
   def new

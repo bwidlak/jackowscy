@@ -35,6 +35,8 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    params[:project][:category_ids] ||= []
+
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
