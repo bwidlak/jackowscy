@@ -29,11 +29,11 @@ gem "compass", "~> 0.12.alpha.0"
 gem "compass-960-plugin"
 gem 'sass', '~> 3.1.5'
 gem 'will_paginate', '~> 3.0'
+gem 'sass-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
