@@ -8,33 +8,53 @@
 @import compass/css3/transition
 @import compass/css3/transform
 
-#notice
-  color: green
 
-.field_with_errors
-  padding: 2px
-  background-color: red
-  display: table
+//     Default Layout: 992px (62em). 
+//     Gutters: 24px (1.5em).
+//     Outer margins: 48px (3em).
+//     Leftover space for scrollbars @1024px: 32px.
+// ------------------------------------------------------------------------------
+// cols 1     2      3      4      5      6      7      8      9      10
+// px   68    160    252    344    436    528    620    712    804    896
 
-#error_explanation
-  width: 450px
-  border: 2px solid red
-  padding: 7px
-  padding-bottom: 0
-  margin-bottom: 20px
-  background-color: #f0f0f0
-  h2
-    text-align: left
-    font-weight: bold
-    padding: 5px 5px 5px 15px
-    font-size: 12px
-    margin: -7px
-    margin-bottom: 0px
-    background-color: #c00
-    color: #fff
-  ul li
-    font-size: 12px
-    list-style: square
+@import layout
 
-@import "home_page"
-@import "forms"
+//     Tablet Layout: 768px (48em).
+//     Gutters: 24px (1.5em).
+//     Outer margins: 28px (1.75em).
+//     Inherits styles from: Default layout.
+// ------------------------------------------------------------------
+// cols 1     2      3      4      5      6      7      8
+// px   68    160    252    344    436    528    620    712
+
+@media only screen and (min-width: 768px) and (max-width: 991px)
+  @import size768_991
+
+//     Mobile Layout: 320px (20em).
+//     Gutters: 24px (1.5em).
+//     Outer margins: 34px (2.125em).
+//     Inherits styles from: Default Layout.
+// --------------------------------------------------
+// cols 1     2      3
+// px   68    160    252
+// em   4.25  10.0   15.75
+
+@media only screen and (max-width: 767px)
+  @import size767
+
+
+//     Wide Mobile Layout: 480px (30em).
+//     Gutters: 24px (1.5em).
+//     Outer margins: 22px (1.375em).
+//     Inherits styles from: Default Layout, Mobile Layout.
+// --------------------------------------------------------------
+// cols 1     2      3      4      5
+// px   68    160    252    344    436
+
+@media only screen and (min-width: 480px) and (max-width: 767px)
+  @import size480_767
+
+
+@import header
+// @import "home_page"
+// @import "forms"

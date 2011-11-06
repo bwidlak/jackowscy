@@ -1,0 +1,132 @@
+//     Default Layout: 1082px
+//     Gutters: 24px (1.5em).
+//     Outer margins: 48px (3em).
+//     Leftover space for scrollbars @1024px: 32px.
+// ------------------------------------------------------------------------------
+// cols 1     2      3      4      5      6      7      8      9      10      11      12
+// px   68    160    252    344    436    528    620    712    804    896     988     1080
+
+body
+  padding: 0px
+  margin: 0px
+  font:
+    family: futura-pt,Futura,"Trebuchet MS",sans-serif
+  header, article, footer
+    padding: 0 48px
+    width: 1080px
+    margin: 0 auto
+  header
+    nav
+      ul
+        padding: 16px
+        +clearfix
+        li
+          a
+            height: 55px
+            padding: 0 12px
+            line-height: 55px
+            text:
+              decoration: none
+              align: center
+              overflow: hidden
+            font:
+              size: 12px
+            float: left
+            display: block
+            font-style: italic
+            text-decoration: none
+    +clearfix
+  #logo
+    float: left
+    auto
+    width: 236px
+    height: 236px
+    padding: 8px
+    background-color: #404040
+    position: relative
+    margin: 0 1px 1px 0
+    p
+      position: absolute
+      top: 80px
+      text-transform: uppercase
+      color: gray
+      font-size: 10px
+    h1
+      a
+        position: absolute
+        top: 36%
+        color: white
+        text-decoration: none
+  #categories
+    float: left
+    width: 252px
+    height: 252px
+    display: block
+    overflow: hidden
+    margin: 0 1px 1px 0
+    ul
+      padding: 16px
+      li
+        a
+          float: left
+          width: 85px
+          display: block
+          padding: 0 12px
+          margin: 0 1px 1px 0
+          color: #817f7d
+          height: 55px
+          background:
+            color: #f1eeeb
+          line-height: 55px
+          text:
+            decoration: none
+            align: center
+            overflow: hidden
+            transform: uppercase
+          font:
+            size: 12px
+          &:hover
+            color: white
+            background:
+              color: rgba(163, 140, 118, 0.9)
+  #category
+    float: left
+    margin: 0 1px 1px 0
+    width: 236px
+    height: 236px
+    padding: 8px
+    background:
+      color: rgba(163, 140, 118, 0.9)
+    color: white
+    line-height: 236px
+    text:
+      decoration: none
+      align: center
+      overflow: hidden
+      transform: uppercase
+    font:
+      size: 12px
+  
+  article
+    figure
+      a
+        margin: 0 1px 1px 0
+        float: left
+        width: 252px
+        height: 252px
+        display: block
+        position: relative
+        .badge
+          width: 236px
+          padding: 8px
+          position: absolute
+          bottom: 0
+          background:
+            color: rgba(163, 140, 118, 0.9)
+          .author
+            text-transform: uppercase
+            margin-bottom: 5px
+          .name
+            font-style: italic
+          .price
+            float: right
