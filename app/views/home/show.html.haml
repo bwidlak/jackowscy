@@ -1,11 +1,9 @@
+- @visible_projects[0..2].each do |project|
+  = render :partial => 'shared/project', :locals => { :project => project}
 #categories      
   %ul    
     - @categories.each do |category|
       %li{ :style => 'color: grey; font-style: italic;'}= link_to category.name, category
-
-
-%h2 Projekty widoczne na stronie głównej
-
-- @visible_projects.each do |project|
+- @visible_projects[3..5].each do |project|
   = render :partial => 'shared/project', :locals => { :project => project}
 = will_paginate @visible_projects

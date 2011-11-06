@@ -57,3 +57,8 @@ List images
       %br/
       Delete img:
       = link_to 'Destroy', project_image_path(@project, image), confirm: 'Are you sure?', method: :delete
+
+:javascript
+  jQuery(document).ready(function($) {
+    $('a[rel*=facebox]').facebox() 
+  });

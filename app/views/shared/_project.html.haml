@@ -1,5 +1,5 @@
 - unless project.images.blank?
-  .project
+  %figure
     %a{:href => "/projects/#{(project.id)}", :style => "background-image: url(#{project.images.first.img_url})"}
       .badge
         .author
