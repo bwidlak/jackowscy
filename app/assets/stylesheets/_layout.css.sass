@@ -6,6 +6,9 @@
 // cols 1     2      3      4      5      6      7      8      9      10      11      12
 // px   68    160    252    344    436    528    620    712    804    896     988     1080
 
+a
+  text-decoration: none
+
 body
   padding: 0px
   margin: 0px
@@ -108,7 +111,7 @@ body
       size: 12px
   
   article
-    figure
+    figure#project
       a
         margin: 0 1px 1px 0
         float: left
@@ -122,11 +125,37 @@ body
           position: absolute
           bottom: 0
           background:
-            color: rgba(163, 140, 118, 0.9)
+            color: rgb(163, 140,118)
+            color: rgba(163, 140, 118, 1)
+          .author, .name, .price
+            color: #574b3f
           .author
+            font-size: 12px
             text-transform: uppercase
             margin-bottom: 5px
           .name
             font-style: italic
           .price
             float: right
+            font-size: 12px
+    figure#project_big
+      margin: 0 1px 1px 0
+      float: left
+      width: 804px
+      height: 600px
+      display: block
+      position: relative
+      background:
+        color: pink
+      .details
+        background:
+          color: rgb(163, 140,118)
+          color: rgba(163, 140, 118, 1)      
+        .price
+          float: right
+          background: 
+            color: rgb(124, 181, 109)
+            color: rgba(124, 181, 109, 1)
+          color:  white
+          padding: 50px 60px
+          font-size: 20px
