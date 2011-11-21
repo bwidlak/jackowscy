@@ -16,11 +16,11 @@
         %ul
           %li= link_to "Strona główna", root_path
           %li= link_to "Obrazy", projects_path
-          %li= link_to "Wydarzenia"
-          %li= link_to "Kontakt"
-          %li= link_to "Authors", authors_path
-          %li= link_to "Categories", categories_path
+          =#%li= link_to "Wydarzenia"
+          =#%li= link_to "Kontakt"
           -if user_signed_in?
+            %li= link_to "Categories", categories_path
+            %li= link_to "Authors", authors_path
             %li
               = link_to "Sign out #{current_user.email}", destroy_user_session_path, :method => :delete
           -else

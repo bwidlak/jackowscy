@@ -1,46 +1,45 @@
 %figure#project_big
+  .back
+    = link_to 'Back', projects_path
   .project_img
+    = image_tag @image.large_url, :width => '804px'
   .details
-    = @project.author.name
-    %br/
-    = @project.name
-    %br/
-    Technika:
-    - for category in @project.categories
-      = category.name + ','
-    %br/
-    Rozmiar:
-    = @project.size
+    %p.title= @project.author.name
+    %p= @project.name
+    %p
+      Technika:
+      - for category in @project.categories
+        = category.name + ','
+    %p
+      Rozmiar:
+      = @project.size
     .price
-      = number_to_currency @project.price
+      %p.text Kup obraz
+      %p= number_to_currency @project.price
 
-Admin:  
-%p
-  %b Status:
-  = @project.status
+-if user_signed_in?
+  %ul
+    - @images.each do |image|
+      %li
+        = link_to image_tag(image.square_url, :alt => @project.name, :size => '75x75'), image.img_url
+        %br/
+        Edit img:
+        = link_to 'Edit img', edit_project_image_path(@project, image)
+        %br/
+        Delete img:
+        = link_to 'Destroy', project_image_path(@project, image), confirm: 'Are you sure?', method: :delete
 
-%p
-  %b Home:
-  = @project.home
+-if user_signed_in?
+  Admin:  
+  %p
+    %b Status:
+    = @project.status
 
-= link_to 'Edit', edit_project_path(@project)
-|
-= link_to 'Back', projects_path
-|
-%h3= link_to 'Add new Img to project', new_project_image_path(@project)
+  %p
+    %b Home:
+    = @project.home
 
-%h3 Categories that project belongs to
-
-%ul
-
-List images
-%ul
-  - @images.each do |image|
-    %li
-      = link_to image_tag(image.square_url, :alt => @project.name, :size => '75x75'), image.img_url
-      %br/
-      Edit img:
-      = link_to 'Edit img', edit_project_image_path(@project, image)
-      %br/
-      Delete img:
-      = link_to 'Destroy', project_image_path(@project, image), confirm: 'Are you sure?', method: :delete
+  = link_to 'Edit', edit_project_path(@project)
+  |
+  %h3= link_to 'Add new Img to project', new_project_image_path(@project)
+  

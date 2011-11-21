@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @images = Project.find(params[:id]).images
+    @image = Project.find(params[:id]).images.first
   end
 
   def new

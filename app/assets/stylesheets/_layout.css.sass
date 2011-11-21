@@ -92,7 +92,7 @@ body
             color: white
             background:
               color: rgba(163, 140, 118, 0.9)
-  #category
+  #category, .categories
     float: left
     margin: 0 1px 1px 0
     width: 236px
@@ -139,23 +139,50 @@ body
             float: right
             font-size: 12px
     figure#project_big
+      position: relative
       margin: 0 1px 1px 0
       float: left
-      width: 804px
-      height: 600px
-      display: block
-      position: relative
-      background:
-        color: pink
-      .details
+      .back
+        position: absolute
+        top: -20px
+        right: 0px
+      .project_img
+        width: 804px
+        height: 600px
+        display: block
+        position: relative
+        overflow: hidden
         background:
           color: rgb(163, 140,118)
-          color: rgba(163, 140, 118, 1)      
+          color: rgba(163, 140, 118, 1)
+      .details
+        color: #625447
+        position: relative
+        background:
+          color: rgb(163, 140,118)
+          color: rgba(163, 140, 118, 1)
+        padding: 9px 0
+        p
+          padding: 6px 18px
+        p.title
+          text-transform: uppercase
         .price
-          float: right
+          top: 0
+          right: 0
+          position: absolute
           background: 
             color: rgb(124, 181, 109)
             color: rgba(124, 181, 109, 1)
           color:  white
-          padding: 50px 60px
+          padding: 30px 40px
           font-size: 20px
+          height: 70px
+          p
+            +text-shadow( 0px -1px 0 #67995a)
+            text-align: center
+          p.text
+            font-size: 24px
+            text-transform: uppercase
+            font-weight: bold
+            color: #3f7631
+            +text-shadow( 0px 1px 0px #88c17a)
