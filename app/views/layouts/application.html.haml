@@ -26,7 +26,10 @@
           -else
             %li= link_to 'Sign in', new_user_session_path
     %article
-      #logo
-        %p Galeria sztuki
-        %h1= link_to image_tag("logo.png"), root_path
-      = yield
+      %aside
+        #logo
+          %p Galeria sztuki
+          %h1= link_to image_tag("logo.png"), root_path
+        = yield :aside
+      %section#content
+        = yield

@@ -1,12 +1,15 @@
-%figure#project_big
+- content_for :aside do
+  = render :partial => 'shared/categories'
+
+#project_big
   .back
-    = link_to 'Back', projects_path
-  .project_img
+    = link_to 'Wróć', projects_path
+  %figure.project_img
     = image_tag @image.large_url, :width => '804px'
   .details
     %p.title= @project.author.name
-    %p= @project.name
-    %p
+    %p.name= @project.name
+    %p.category
       Technika:
       - for category in @project.categories
         = category.name + ','
@@ -17,17 +20,24 @@
       %p.text Kup obraz
       %p= number_to_currency @project.price
 
--if user_signed_in?
-  %ul
-    - @images.each do |image|
-      %li
-        = link_to image_tag(image.square_url, :alt => @project.name, :size => '75x75'), image.img_url
-        %br/
-        Edit img:
-        = link_to 'Edit img', edit_project_image_path(@project, image)
-        %br/
-        Delete img:
-        = link_to 'Destroy', project_image_path(@project, image), confirm: 'Are you sure?', method: :delete
+#other_projects
+  %h3 Inne projekty tego autora
+  - @other_projects.each do |project|
+    = render :partial => 'shared/project', :locals => { :project => project}
+
+  -if user_signed_in?
+    %ul
+      - @images.each do |image|
+        %li
+          = link_to image_tag(image.square_url, :alt => @project.name, :size => '75x75'), image.img_url
+          %br/
+          Edit img:
+          = link_to 'Edit img', edit_project_image_path(@project, image)
+          %br/
+          Delete img:
+          = link_to 'Destroy', project_image_path(@project, image), confirm: 'Are you sure?', method: :delete
+  .back
+    = link_to 'Wróć', projects_path  
 
 -if user_signed_in?
   Admin:  

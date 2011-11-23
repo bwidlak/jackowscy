@@ -1,0 +1,4 @@
+#categories
+  %ul    
+    - @categories[0..7].each do |category|
+      %li{ :style => 'color: grey; font-style: italic;'}= link_to category.name, category

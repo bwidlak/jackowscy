@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
 
+  before_filter :load_categories
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
@@ -10,6 +11,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @images = Project.find(params[:id]).images
     @image = Project.find(params[:id]).images.first
+    @other_projects = @project.author.projects
   end
 
   def new
@@ -54,5 +56,9 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_url
+  end
+  
+  def load_categories
+    @categories = Category.find(:all, :conditions => { :visible => true })[0..7]
   end
 end
