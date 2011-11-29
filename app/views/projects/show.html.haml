@@ -22,34 +22,9 @@
 
 #other_projects
   %h3 Inne projekty tego autora
+  = will_paginate @other_projects
   - @other_projects.each do |project|
     = render :partial => 'shared/project', :locals => { :project => project}
-
-  -if user_signed_in?
-    %ul
-      - @images.each do |image|
-        %li
-          = link_to image_tag(image.square_url, :alt => @project.name, :size => '75x75'), image.img_url
-          %br/
-          Edit img:
-          = link_to 'Edit img', edit_project_image_path(@project, image)
-          %br/
-          Delete img:
-          = link_to 'Destroy', project_image_path(@project, image), confirm: 'Are you sure?', method: :delete
   .back
-    = link_to 'Wróć', projects_path  
-
--if user_signed_in?
-  Admin:  
-  %p
-    %b Status:
-    = @project.status
-
-  %p
-    %b Home:
-    = @project.home
-
-  = link_to 'Edit', edit_project_path(@project)
-  |
-  %h3= link_to 'Add new Img to project', new_project_image_path(@project)
-  
+    = link_to 'Wróć', projects_path
+  = will_paginate @other_projects
