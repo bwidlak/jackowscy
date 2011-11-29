@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
 
   before_filter :load_categories
-  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     @projects = Project.paginate(:page => params[:page])
@@ -11,53 +10,9 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @images = Project.find(params[:id]).images
     @image = Project.find(params[:id]).images.first
-    @other_projects = @project.author.projects
+    @other_projects = @project.author.projects.paginate(:page => params[:page], :per_page => 6)
   end
 
-  def new
-    @project = Project.new
-    @categories = Category.all
-  end
-
-  def edit
-    @project = Project.find(params[:id])
-    @categories = Category.all
-  end
-
-  def create
-    @project = Project.new(params[:project])
-
-    if @project.save
-      redirect_to @project
-      flash[:notice] = "Project was successfully created."
-    else
-      render action: "new"
-      flash[:error] = @project.errors
-    end
-  end
-
-  def update
-    @project = Project.find(params[:id])
-    params[:project][:category_ids] ||= []
-
-
-    respond_to do |format|
-      if @project.update_attributes(params[:project])
-        redirect_to @project
-        flash[:notice] = "Project was successfully updated."
-      else
-        render action: "edit"
-        flash[:error] = "Errors while saving"
-      end
-    end
-  end
-
-  def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
-    redirect_to projects_url
-  end
-  
   def load_categories
     @categories = Category.find(:all, :conditions => { :visible => true })[0..7]
   end
