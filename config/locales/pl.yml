@@ -232,3 +232,6 @@ pl:
 
       full_messages:
         format: "%{attribute} %{message}"
+  will_paginate:
+    previous_label: "&larr; poprzednia"
+    next_label: "następna &rarr;"
