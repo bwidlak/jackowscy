@@ -9,7 +9,7 @@
   %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
   // Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/
 
-  %body{ :lang => "en"}
+  %body{ :lang => "pl"}
 
     %header#masthead
       %nav
@@ -19,12 +19,10 @@
           =#%li= link_to "Wydarzenia"
           =#%li= link_to "Kontakt"
           -if user_signed_in?
-            %li= link_to "Categories", categories_path
-            %li= link_to "Authors", authors_path
+            %li= link_to "Kategorie", categories_path
+            %li= link_to "Autorzy", authors_path
             %li
-              = link_to "Sign out #{current_user.email}", destroy_user_session_path, :method => :delete
-          -else
-            %li= link_to 'Sign in', new_user_session_path
+              = link_to "admin", "/admin/projects"
     %article
       %aside
         #logo
