@@ -1,0 +1,7 @@
+%h2 Nowa kategoria
+
+= simple_form_for(@category, :url => admin_categories_path) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = f.button :submit, 'Zapisz nową kategorię'
+
+= link_to 'Wróć do kategorii', admin_categories_path

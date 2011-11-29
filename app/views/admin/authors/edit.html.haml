@@ -1,0 +1,11 @@
+%h2
+  %span.label Edycja:
+  = @author.name
+
+= simple_form_for(@author, :url => admin_author_path(@author)) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = f.button :submit, 'Zapisz zmiany w autorze'
+
+= link_to 'Show', admin_author_path(@author)
+|
+= link_to 'Back', admin_authors_path

@@ -1,0 +1,17 @@
+%h2 Kategorie
+
+= link_to 'Nowa kategoria', new_admin_category_path
+
+%table
+  %tr
+    %th Nazwa
+    %th Akcje
+
+  - @categories.each do |category|
+    %tr
+      %td
+        = check_box_tag category, category.id, category.visible, :disabled => true
+        = link_to category.name, admin_category_path(category)
+      %td
+        = link_to 'Edit', edit_admin_category_path(category)
+        = link_to 'Destroy', admin_category_path(category), confirm: 'Are you sure?', method: :delete

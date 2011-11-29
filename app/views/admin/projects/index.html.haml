@@ -1,0 +1,19 @@
+%h2 Projekty
+
+= link_to 'Nowy projekt', new_admin_project_path
+
+%table
+  %tr
+    %th Mini
+    %th Projekt
+    %th Akcje
+
+  - @projects.each do |project|
+    %tr
+      %td
+        - if !project.images.blank?
+          = image_tag project.images.first.square_url, :size => '40x40', :alt => project.name
+      %td= link_to project.name, admin_project_path(project)
+      %td
+        = link_to 'Edytuj', edit_admin_project_path(project)
+        = link_to 'Usuń', admin_project_path(project), confirm: 'Czy na pewno?', method: :delete

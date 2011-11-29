@@ -1,0 +1,15 @@
+%h2 Autorzy
+
+= link_to 'Dodaj nowego autora', new_admin_author_path
+
+- if !@authors.blank?
+  %table
+    %tr
+      %th Autor
+      %th Akcje
+    - @authors.each do |author|
+      %tr
+        %td= link_to author.name, admin_author_path(author)
+        %td
+          = link_to 'Edytuj', edit_admin_author_path(author)
+          = link_to 'Usuń', admin_author_path(author), confirm: 'Czy na pewno?', method: :delete

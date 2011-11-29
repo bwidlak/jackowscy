@@ -1,0 +1,8 @@
+%h2 Nowy projekt
+
+= simple_form_for(@project, :url => admin_projects_path) do |f|
+  =# simple_form_for @project do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = f.button :submit, 'Zachowaj jako nowy projekt'
+  
+= link_to 'Wróć do projektów', admin_projects_path

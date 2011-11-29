@@ -1,0 +1,18 @@
+%h2
+  %span.label Edycja zdjęcia należącego do projektu:
+  = @project.name
+
+= simple_form_for(@image, :url => admin_project_image_path(@project, @image)) do |f|
+
+  = f.input :img_url, :hint => 'no hooks'
+  = f.input :square_url, :hint => 'hook: _s.jpg'
+  = f.input :thumbnail_url, :hint => 'hook: _t.jpg'
+  = f.input :small_url, :hint => 'hook: _m.jpg'
+  = f.input :medium_url, :hint => 'hook: _z.jpg'
+  = f.input :large_url, :hint => 'hook: _b.jpg'
+  = f.input :status, :hint => 'Show this img in project for normal users', :label => 'Widoczny?'
+  = f.button :submit, 'Zapisz zmiany w obrazie'
+
+= link_to 'Pokarz', @image
+|
+= link_to 'Wróć', @project

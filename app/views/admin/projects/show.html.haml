@@ -1,0 +1,46 @@
+%h2
+  %span.label Projekt:
+  = @project.name
+
+%table
+  %tr
+    %th Widoczny?
+    %th Dostępny na stronie głównej?
+    %th Autor
+    %th Technika
+    %th Rozmiar
+    %th Cena
+    %th Akcje
+  %tr
+    %td= @project.status
+    %td= @project.home
+    %td= @project.author.name
+    %td
+      %ul
+        - for category in @project.categories
+          %li= category.name
+    %td= @project.size
+    %td= number_to_currency @project.price
+    %td
+      = link_to 'Edit', edit_admin_project_path(@admin_project)
+      |
+      = link_to 'Back', admin_projects_path
+
+%h3 Zdjęcia załączone do projektu
+      
+= link_to 'Add new Img to project', new_admin_project_image_path(@project)
+
+- if !@project.images.blank?
+  %table
+    %tr
+      %th Zdjęcie
+      %th Akcje
+      
+    - @project.images.each do |image|
+      %tr
+        %td
+          = link_to image_tag(image.square_url, :alt => @project.name, :size => '75x75'), image.img_url
+        %td
+          = link_to 'Edytuj', edit_admin_project_image_path(@project, image)
+          |
+          = link_to 'Usuń', admin_project_image_path(@project, image), confirm: 'Czy na pewno?', method: :delete

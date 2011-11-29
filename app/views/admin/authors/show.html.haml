@@ -1,0 +1,15 @@
+%h2
+  %span.label Autor:
+  = @author.name
+
+= link_to 'Edytuj autora', edit_admin_author_path(@author)
+|
+= link_to 'Wróć do autorów', admin_authors_path
+
+- if !@author.projects.blank?
+  %table
+    %tr
+      %th Projekt
+    - @author.projects.each do |project|
+      %tr
+        %td= link_to project.name, admin_project_path(project)

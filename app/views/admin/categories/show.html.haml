@@ -1,0 +1,24 @@
+%h2
+  %span.label Kategoria:
+  = @category.name
+
+%table
+  %tr
+    %th widoczna?
+    %th Akcje
+  %tr
+    %td= check_box_tag @category, @category.id, @category.visible, :disabled => true
+    %td
+      = link_to 'Edytuj kategorię', edit_admin_category_path(@admin_category)
+      |
+      = link_to 'Wróć', admin_categories_path
+
+- if !@category.projects.blank?
+  %table
+    %tr
+      %th Projekty w tej kategorii
+    - @category.projects.each do |project|
+      %tr
+        %td= link_to project.name, admin_project_path(project)
+- else
+  %h3 Ta kategoria nie jest powiązana z projektami

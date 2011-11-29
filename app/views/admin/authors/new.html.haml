@@ -1,0 +1,7 @@
+%h2 Nowy autor
+
+= simple_form_for(@author, :url => admin_authors_path(@author)) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = f.button :submit, 'Zapisz nowego autora'
+  
+= link_to 'Wróć', admin_authors_path

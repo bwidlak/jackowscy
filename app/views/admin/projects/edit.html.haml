@@ -1,0 +1,11 @@
+%h2
+  %span.label Edycja projektu:
+  = @project.name
+
+= simple_form_for(@project, :url => admin_project_path(@project)) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = f.button :submit, 'Zapisz zmiany w projekcie'
+
+= link_to 'Pokaż projekt', admin_project_path(@project)
+|
+= link_to 'Wróć', admin_projects_path
