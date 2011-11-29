@@ -1,14 +1,38 @@
 Jackowscy::Application.routes.draw do
 
-  resources :categories
+  match "/admin" => redirect("/admin/projects")
 
-  resources :authors
+  namespace :admin do
+    resources :projects do
+      resources :images
+    end
+    resources :authors
+    resources :categories
+  end
+
+  scope(:path_names => { :new => "nowa", :edit => "edytuj" }) do
+    resources :categories, :path => "kategorie", :only => [:index, :show]
+  end
+  #resources :categories, :only => [:index, :show]
+
+  scope(:path_names => { :new => "nowy", :edit => "edytuj" }) do
+    resources :authors, :path => "autorzy", :only => [:index, :show]
+  end
+  #resources :authors, :only => [:index, :show]
 
   devise_for :users
 
-  resources :projects do
-    resources :images
+  scope(:path_names => { :new => "nowy", :edit => "edytuj" }) do
+    resources :projects, :only => [:index, :show], :path => "obrazy" do
+      resources :images, :only => [:index, :show], :path => "zdjecia"
+    end
+    resources :authors, :path => "autorzy"
   end
+
+
+  # resources :projects, :only => [:index, :show] do
+  #   resources :images, :only => [:index, :show]
+  # end
 
   root :to => "home#show"
 
