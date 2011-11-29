@@ -1,0 +1,24 @@
+!!! 5
+%html
+  %head
+  %title Jackowscy
+  = stylesheet_link_tag "admin"
+  = javascript_include_tag "application"
+  =# stylesheet_link_tag 'facebox'
+  = csrf_meta_tags
+  %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
+  // Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/
+
+  %body#admin
+    #container
+      #header
+        %h1 Panel administratora
+      #mainnav
+        %ul{ :class => controller_name }
+          %li.projects= link_to 'Projekty', admin_projects_path
+          %li.categories= link_to 'Kategorie', admin_categories_path
+          %li.authors= link_to 'Autorzy', admin_authors_path
+          %li.home= link_to 'Strona główna', root_path
+          %li.logout= link_to "Wyloguj #{current_user.email}", destroy_user_session_path, :method => :delete
+      #content
+        = yield

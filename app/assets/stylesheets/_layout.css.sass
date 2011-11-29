@@ -17,7 +17,7 @@ body
   color: #808080
   header, article, footer
     padding: 0 48px
-    width: 1080px
+    width: 1012px
     margin: 0 auto
   header
     nav
@@ -130,6 +130,8 @@ body
         height: 252px
         display: block
         position: relative
+        background:
+          position: 50% 50%
         .badge
           width: 236px
           padding: 8px
@@ -212,3 +214,16 @@ body
         position: absolute
         bottom: -60px
         right: 0px
+.pagination
+  text-align: center
+  font-size: 13px
+  clear: left
+  padding: 25px
+  font-style: italic
+  +clearfix
+  span, em, a
+    padding: 5px
+  span.previous_page.disabled
+  em.current
+  a.next
+  a.next_page
