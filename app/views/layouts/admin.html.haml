@@ -18,6 +18,7 @@
           %li.projects= link_to 'Projekty', admin_projects_path
           %li.categories= link_to 'Kategorie', admin_categories_path
           %li.authors= link_to 'Autorzy', admin_authors_path
+          %li.blogs= link_to 'Blog', admin_blogs_path
           %li.home= link_to 'Strona główna', root_path
           %li.logout= link_to "Wyloguj #{current_user.email}", destroy_user_session_path, :method => :delete
       #content
