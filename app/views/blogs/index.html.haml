@@ -1,5 +1,8 @@
 - @blogs.each do |blog|
   .blog_entry
     .title= link_to blog.title, blog
+    .date
+      dodano:
+      = blog.created_at.strftime("%d.%m.%Y")
     %hr/
     .content= blog.content.html_safe

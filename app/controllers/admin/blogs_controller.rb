@@ -51,6 +51,6 @@ class Admin::BlogsController < ApplicationController
   end
   
   def load_blogs
-    @blogs = Blog.all
+    @blogs = Blog.find(:all, :order => "created_at DESC")
   end
 end

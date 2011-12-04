@@ -2,7 +2,7 @@
 %html
   %head
   %title Jackowscy
-  = stylesheet_link_tag "application"
+  = stylesheet_link_tag "application", "blog"
   = javascript_include_tag "application"
   =# stylesheet_link_tag 'facebox'
   = csrf_meta_tags
@@ -13,15 +13,11 @@
 
     %header#masthead
       %nav
-        %ul
-          %li= link_to "Strona główna", root_path
-          %li= link_to "Obrazy", projects_path
-          %li= link_to "Wydarzenia", blogs_path
-          =#%li= link_to "Wydarzenia"
-          =#%li= link_to "Kontakt"
+        %ul{ :class => controller_name }
+          %li.home= link_to "Strona główna", root_path
+          %li.projects= link_to "Obrazy", projects_path
+          %li.blogs= link_to "Wydarzenia", blogs_path
           -if user_signed_in?
-            %li= link_to "Kategorie", categories_path
-            %li= link_to "Autorzy", authors_path
             %li
               = link_to "admin", "/admin/projects"
     %article

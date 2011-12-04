@@ -5,6 +5,8 @@
 %table
   %tr
     %th Mini
+    %th Aktywny?
+    %th Na głównej stronie?
     %th Projekt
     %th Akcje
 
@@ -13,6 +15,10 @@
       %td
         - if !project.images.blank?
           = image_tag project.images.first.square_url, :size => '40x40', :alt => project.name
+      %td
+        = check_box_tag project, project.id, project.status, :disabled => true
+      %td
+        = check_box_tag project, project.id, project.home, :disabled => true      
       %td= link_to project.name, admin_project_path(project)
       %td
         = link_to 'Edytuj', edit_admin_project_path(project)

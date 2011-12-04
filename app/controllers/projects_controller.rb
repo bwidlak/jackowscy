@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_filter :load_categories
 
   def index
-    @projects = Project.paginate(:page => params[:page])
+    @projects = Project.paginate(:page => params[:page], :conditions => { :status => true })
   end
 
   def show
