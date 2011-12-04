@@ -1,0 +1,11 @@
+:javascript
+  $(function() {
+    $('textarea').tinymce({
+      theme: 'advanced'
+    });
+  });
+  
+= f.input :title
+= f.input :active
+= f.input :content, :input_html => { :class => 'tinymce' }
+= f.association :author

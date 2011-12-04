@@ -1,0 +1,23 @@
+%h2 blog
+
+= link_to 'Nowy wpis na blog', new_admin_blog_path
+
+%table
+  %tr
+    %th Tytuł
+    %th Autor
+    %th Data utworzenia
+    %th Data ostatniej modyfikacji
+    %th Akcje
+
+  - @blogs.each do |blog|
+    %tr
+      %td
+        = check_box_tag blog, blog.id, blog.active, :disabled => true
+        = link_to blog.title, admin_blog_path(blog)
+      %td= blog.author.name
+      %td= blog.created_at
+      %td= blog.updated_at
+      %td
+        = link_to 'Edit', edit_admin_blog_path(blog)
+        = link_to 'Destroy', admin_blog_path(blog), confirm: 'Czy na pewno?', method: :delete

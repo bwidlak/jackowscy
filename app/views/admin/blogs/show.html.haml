@@ -1,0 +1,16 @@
+%h2
+  = @blog.title
+  %br/
+= @blog.content.html_safe
+
+
+%table
+  %tr
+    %th widoczna?
+    %th Akcje
+  %tr
+    %td= check_box_tag @blog, @blog.id, @blog.active, :disabled => true
+    %td
+      = link_to 'Edytuj', edit_admin_blog_path(@blog)
+      |
+      = link_to 'Wróć', admin_blogs_path

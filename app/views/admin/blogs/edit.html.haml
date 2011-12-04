@@ -1,0 +1,11 @@
+%h2
+  Edytuj
+  = @blog.title
+
+= simple_form_for(@blog, :url => admin_blog_path(@blog)) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = f.button :submit
+
+= link_to 'Pokarz wpis', @blog
+|
+= link_to 'Wróć do listy', admin_blogs_path

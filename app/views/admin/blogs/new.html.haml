@@ -1,0 +1,7 @@
+%h2 Nowy wpis na blog
+
+= simple_form_for(@blog, :url => admin_blogs_path) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = f.button :submit, 'Zachowaj nowy wpis'
+  
+= link_to 'Wróć', admin_blogs_path
