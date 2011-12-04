@@ -1,0 +1,5 @@
+- @blogs.each do |blog|
+  .blog_entry
+    .title= link_to blog.title, blog
+    %hr/
+    .content= blog.content.html_safe
