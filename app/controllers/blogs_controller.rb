@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.find(:all, :conditions => {:active => true})
   end
 
   def show
