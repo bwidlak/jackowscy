@@ -8,18 +8,21 @@ Jackowscy::Application.routes.draw do
     end
     resources :authors
     resources :categories
+    resources :blogs
   end
 
   scope(:path_names => { :new => "nowa", :edit => "edytuj" }) do
     resources :categories, :path => "kategorie", :only => [:index, :show]
   end
-  #resources :categories, :only => [:index, :show]
 
   scope(:path_names => { :new => "nowy", :edit => "edytuj" }) do
     resources :authors, :path => "autorzy", :only => [:index, :show]
   end
-  #resources :authors, :only => [:index, :show]
 
+  scope(:path_names => { :new => "nowe", :edit => "edytuj" }) do
+    resources :blogs, :path => "wydarzenia", :only => [ :index, :show ]
+  end
+  
   devise_for :users
 
   scope(:path_names => { :new => "nowy", :edit => "edytuj" }) do
@@ -28,11 +31,6 @@ Jackowscy::Application.routes.draw do
     end
     resources :authors, :path => "autorzy"
   end
-
-
-  # resources :projects, :only => [:index, :show] do
-  #   resources :images, :only => [:index, :show]
-  # end
 
   root :to => "home#show"
 
