@@ -1,5 +1,6 @@
 - content_for :aside do
   = render :partial => 'shared/categories'
+  = render :partial => 'shared/authors'
 
 #project_big
   .back
@@ -9,7 +10,7 @@
   .details
     %p.title= @project.author.name
     %p.name= @project.name
-    %p.category
+    %p.categories
       Technika:
       - for category in @project.categories
         = category.name + ','

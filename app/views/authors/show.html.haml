@@ -1,16 +1,6 @@
-%p
-  #notice
-    = notice
+- content_for :aside do
+  = render :partial => 'shared/categories'
+  = render :partial => 'shared/authors'
 
-%p
-  %b
-    Name:
-    = @author.name
-%p
-  %b
-    Created at:
-    = @author.created_at
-
-= link_to 'Edit', edit_author_path(@author)
-|
-= link_to 'Back', authors_path
+- @author_projects.each do |project|
+  = render :partial => 'shared/project', :locals => { :project => project}

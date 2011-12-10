@@ -1,5 +1,6 @@
 - content_for :aside do
   = render :partial => 'shared/categories'
+  = render :partial => 'shared/authors'
   
 - @visible_projects.each do |project|
   = render :partial => 'shared/project', :locals => { :project => project}
