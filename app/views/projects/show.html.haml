@@ -14,12 +14,12 @@
       Technika:
       - for category in @project.categories
         = category.name + ','
-    %p
+    %p.frame
       Rozmiar:
       = @project.size
     .price
       %p.text Kup obraz
-      %p= number_to_currency @project.price
+      %p.value= number_to_currency @project.price
 
 #other_projects
   %h3 Inne projekty tego autora

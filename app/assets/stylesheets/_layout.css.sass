@@ -359,6 +359,10 @@ body
           font-weight: bold
         p.name
           +font_serif
+        p.categories
+          +font_serif
+        p.frame
+          +font_serif
         .price
           top: 0
           right: 0
@@ -371,16 +375,18 @@ body
           width: 252px
           font-size: 20px
           height: 70px
-          +font_serif
           p
             +text-shadow( 0px -1px 0 #67995a)
             text-align: center
           p.text
+            font-style: normal
             font-size: 24px
             text-transform: uppercase
             font-weight: bold
             color: #3f7631
             +text-shadow( 0px 1px 0px #88c17a)
+          p.value
+            +font_serif
     #other_projects
       h3
         text-transform: uppercase
