@@ -1,6 +1,6 @@
 - unless project.images.blank?
   %figure.project
-    %a{:href => project_path(project)}
+    %a{:href => project_path(project), :class => "project_hover"}
       = image_tag project.images.first.img_url, :alt => project.name, :title => project.name, :width => '300'
       .badge
         .author
@@ -9,4 +9,25 @@
           = number_to_currency project.price
         .name
           = project.name
-          
+      .cover{:href => project_path(project)}
+        .ico
+          = image_tag "ico_scope.png", :size => '32x32', :alt => 'Otwórz'
+        .text
+          Otwórz
+        .cover_badge
+          .author
+            = project.author.name
+          .price
+            = number_to_currency project.price
+          .name
+            = project.name
+
+:javascript
+  $("a.project_hover").hover(
+    function(){
+      $(this).children("div.cover").fadeIn();
+    },
+    function(){
+      $(this).children("div.cover").fadeOut();
+    }
+  );

@@ -1,3 +1,7 @@
+=font_serif
+  font:
+    family: georgia
+
 a
   text-decoration: none
   color: #a38c76
@@ -32,6 +36,7 @@ body
             display: block
             font-style: italic
             text-decoration: none
+            +font_serif
             &:hover
               color: #a38c76
         &.home
@@ -223,7 +228,7 @@ body
               +transition-timing-function(ease-in)
               +transition-duration(0.2s)
 
-  #category, .category
+  #category, .category, #author
     float: left
     margin: 0 1px 1px 0
     width: 236px
@@ -272,10 +277,52 @@ body
           .name
             font-style: italic
             padding-right: 50px
+            +font_serif
           .price
             font-style: italic
             float: right
             font-size: 12px
+            +font_serif
+        .cover
+          display: none
+          position: absolute
+          top: 0
+          background-color: rgba(163, 140, 118, 0.7)
+          width: 252px
+          height: 92px
+          text-align: center
+          padding: 80px 0
+          .text
+            text-align: center
+            font-style: italic
+            color: white
+            font-size: 12px
+            +font-serif
+          .cover_badge
+            width: 236px
+            padding: 8px
+            text-align: left
+            position: absolute
+            bottom: 0
+            background:
+              color: rgb(163, 140,118)
+              color: rgba(163, 140, 118, 1)
+            .author, .name, .price
+              color: #574b3f
+              font-size: 11px
+            .author
+              font-weight: bold
+              text-transform: uppercase
+              margin-bottom: 5px
+            .name
+              font-style: italic
+              padding-right: 50px
+              +font_serif
+            .price
+              font-style: italic
+              float: right
+              font-size: 12px
+              +font_serif
     #project_big
       position: relative
       margin: 0 1px 1px 0
@@ -309,6 +356,9 @@ body
         p.title
           text-transform: uppercase
           font-style: normal
+          font-weight: bold
+        p.name
+          +font_serif
         .price
           top: 0
           right: 0
@@ -321,6 +371,7 @@ body
           width: 252px
           font-size: 20px
           height: 70px
+          +font_serif
           p
             +text-shadow( 0px -1px 0 #67995a)
             text-align: center
