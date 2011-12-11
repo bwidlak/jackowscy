@@ -1,12 +1,12 @@
 - unless project.images.blank?
   %figure.project
-    / %a{:href => "/projects/#{(project.id)}", :style => "background-image: url(#{project.images.first.img_url})"}
-    %a{:href => project_path(project), :style => "background-image: url(#{project.images.first.img_url})"}
+    %a{:href => project_path(project)}
+      = image_tag project.images.first.img_url, :alt => project.name, :title => project.name, :width => '300'
       .badge
         .author
           = project.author.name
         .price
           = number_to_currency project.price
         .name
-          = project.name        
+          = project.name
           

@@ -58,10 +58,12 @@ body
     margin-right: 1px
     float: left
     position: relative
+    margin-bottom: 50px
   section#content
     width: 759px
     float: left
     position: relative
+    margin-bottom: 50px
   #logo
     float: left
     auto
@@ -117,18 +119,17 @@ body
           font:
             size: 12px
             weight: bold
-          &:hover
-            color: white
-            background:
-              color: rgba(163, 140, 118, 0.9)
+
         &.selected
           a
             color: white
             background:
               color: rgba(163, 140, 118, 0.7)
             &:hover
-              +single-transition(background-color, 3, ease-in, 0)
-              background-color: rgba(163, 140, 118, 0.9)
+              +transition-property(background-color)
+              +transition-timing-function(ease)
+              background:
+                color: rgba(163, 140, 118, 0.9)
   #authors
     float: left
     width: 252px
@@ -192,6 +193,7 @@ body
   article
     figure.project
       a
+        overflow: hidden
         margin: 0 1px 1px 0
         float: left
         width: 252px
