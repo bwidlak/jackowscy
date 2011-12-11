@@ -2,5 +2,7 @@
   = render :partial => 'shared/categories'
   = render :partial => 'shared/authors'
 
+#author
+  = @author.name
 - @author_projects.each do |project|
   = render :partial => 'shared/project', :locals => { :project => project}

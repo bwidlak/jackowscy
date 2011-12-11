@@ -16,7 +16,7 @@ Jackowscy::Application.routes.draw do
   end
 
   scope(:path_names => { :new => "nowy", :edit => "edytuj" }) do
-    resources :authors, :path => "autorzy", :only => [:index, :show]
+    resources :authors, :path => "autorzy", :only => [:show]
   end
 
   scope(:path_names => { :new => "nowe", :edit => "edytuj" }) do
