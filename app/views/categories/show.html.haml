@@ -1,7 +1,6 @@
-- blah = 3
 - content_for :aside do
   = render :partial => 'shared/categories'
-  = render :partial => 'shared/authors', :locals => { :author => blah }
+  = render :partial => 'shared/authors'
 
 #category
   = @category.name
