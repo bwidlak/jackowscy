@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   end
   
   def filter_categories
-    @filter_categories = Category.find(:all, :conditions => { :visible => true })[0..7]
+    @filter_main_categories = Category.find(:all, :conditions => { :visible => true })[0..3]
+    @filter_sub_categories = Category.all - @filter_main_categories
   end
 
   def filter_authors

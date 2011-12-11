@@ -26,6 +26,4 @@
   = will_paginate @other_projects
   - @other_projects.each do |project|
     = render :partial => 'shared/project', :locals => { :project => project}
-  .back
-    = link_to 'Wróć', projects_path
   = will_paginate @other_projects

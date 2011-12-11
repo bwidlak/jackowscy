@@ -9,7 +9,6 @@ body
     family: 'helvetica Neue', helvetica, arial
   color: #808080
   header, article, footer
-    padding: 0 48px
     width: 1012px
     margin: 0 auto
   header
@@ -63,7 +62,6 @@ body
     width: 759px
     float: left
     position: relative
-    margin-bottom: 50px
   #logo
     float: left
     auto
@@ -88,23 +86,19 @@ body
   #categories
     float: left
     width: 252px
-    height: 252px
-    display: block
-    overflow: hidden
     margin: 0 1px 1px 0
-    ul
+    ul.main_cat
+      +clearfix
       padding: 16px
       li
         color: gray
-        font-style: italic
         a
           line-height: auto
           height: 55px
           width: 85px
           display: block
           line-height: 55px
-          background:
-            color: #f1eeeb
+          background-color: #f1eeeb
           float: left
           margin: 0 1px 1px 0
           padding: 0 12px
@@ -119,17 +113,63 @@ body
           font:
             size: 12px
             weight: bold
-
+          +transition-property(background-color)
+          +transition-timing-function(ease-out)
+          +transition-duration(0.6s)
+          &:hover
+            color: white
+            background:
+              color: rgba(163, 140, 118, 1)
+            +transition-property(background-color)
+            +transition-timing-function(ease-in)
+            +transition-duration(0.2s)
         &.selected
           a
             color: white
-            background:
-              color: rgba(163, 140, 118, 0.7)
+            background-color: rgba(163, 140, 118, 0.6)
+            +transition-property(background-color)
+            +transition-timing-function(ease-out)
+            +transition-duration(0.6s)
             &:hover
+              background-color: rgba(163, 140, 118, 1)
               +transition-property(background-color)
-              +transition-timing-function(ease)
-              background:
-                color: rgba(163, 140, 118, 0.9)
+              +transition-timing-function(ease-in)
+              +transition-duration(0.2s)
+    ul.sub_cat
+      margin: 0 16px 16px 16px
+      border-top: 3px solid #f1eeeb
+      li
+        a
+          color: #817f7d
+          display: block
+          width: 195px
+          padding: 10px 12px
+          text-transform: uppercase
+          border-bottom: 1px solid #f1eeeb
+          font-weight: bold
+          font-size: 12px
+          +transition-property(background-color)
+          +transition-timing-function(ease-out)
+          +transition-duration(0.6s)
+          &:hover
+            color: white
+            background:
+              color: rgba(163, 140, 118, 1)
+            +transition-property(background-color)
+            +transition-timing-function(ease-in)
+            +transition-duration(0.2s)
+        &.selected
+          a
+            background-color: rgba(163, 140, 118, 0.6)
+            color: white
+            +transition-property(background-color)
+            +transition-timing-function(ease-out)
+            +transition-duration(0.6s)
+            &:hover
+              background-color: rgba(163, 140, 118, 1)
+              +transition-property(background-color)
+              +transition-timing-function(ease-in)
+              +transition-duration(0.2s)
   #authors
     float: left
     width: 252px
@@ -160,18 +200,29 @@ body
           font:
             size: 12px
             weight: bold
+          +transition-property(background-color)
+          +transition-timing-function(ease-out)
+          +transition-duration(0.6s)
           &:hover
             color: white
             background:
-              color: rgba(163, 140, 118, 0.9)
+              color: rgba(163, 140, 118, 1)
+            +transition-property(background-color)
+            +transition-timing-function(ease-in)
+            +transition-duration(0.2s)
         &.selected
           a
             color: white
-            background:
-              color: rgba(163, 140, 118, 0.7)
+            background-color: rgba(163, 140, 118, 0.6)
+            +transition-property(background-color)
+            +transition-timing-function(ease-out)
+            +transition-duration(0.6s)
             &:hover
-              +single-transition(background-color, 3, ease-in, 0)
-              background-color: rgba(163, 140, 118, 0.9)
+              background-color: rgba(163, 140, 118, 1)
+              +transition-property(background-color)
+              +transition-timing-function(ease-in)
+              +transition-duration(0.2s)
+
   #category, .category
     float: left
     margin: 0 1px 1px 0
@@ -189,6 +240,7 @@ body
       transform: uppercase
     font:
       size: 12px
+      weight: bold
   
   article
     figure.project
@@ -233,6 +285,8 @@ body
         position: absolute
         top: -20px
         right: 0px
+        font-style: italic
+        font-size: 12px
       figure.project_img
         width: 758px
         height: 600px
@@ -284,6 +338,8 @@ body
         position: absolute
         bottom: -60px
         right: 0px
+        font-size: 12px
+        font-style: italic
 .pagination
   text-align: center
   font-size: 13px
@@ -297,3 +353,14 @@ body
   em.current
   a.next
   a.next_page
+
+footer
+  padding: 20px 0
+  +clearfix
+  text-align: right
+  border-top: 1px solid #f1eeeb
+  display: block
+  color: #cdcccc
+  font:
+    style: italic
+    size: 12px
