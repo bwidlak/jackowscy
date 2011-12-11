@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @images = Project.find(params[:id]).images
     @image = Project.find(params[:id]).images.first
-    @other_projects = @project.author.projects.paginate(:page => params[:page], :per_page => 6)
+    @other_projects = @project.author.projects.paginate(:page => params[:page], :conditions => ["id!='%s'", params[:id]], :per_page => 6)
   end
 
   def load_categories
