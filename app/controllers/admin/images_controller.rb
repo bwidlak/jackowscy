@@ -51,6 +51,6 @@ class Admin::ImagesController < ApplicationController
   end
 
   def load_projects
-    @project = Project.find_by_id(params[:project_id])
+    @project = Project.find_by_permalink(params[:project_id])
   end
 end

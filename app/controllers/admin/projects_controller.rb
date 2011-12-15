@@ -10,8 +10,8 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
-    @images = Project.find(params[:id]).images
+    @project = Project.find_by_permalink(params[:id])
+    @images = @project.images
   end
 
   def new
@@ -19,7 +19,7 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
+    @project = Project.find_by_permalink(params[:id])
   end
 
   def create
@@ -35,7 +35,7 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
+    @project = Project.find_by_permalink(params[:id])
     params[:project][:category_ids] ||= []
 
     if @project.update_attributes(params[:project])
@@ -48,7 +48,7 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    @project = Project.find_by_permalink(params[:id])
     @project.destroy
     redirect_to admin_projects_url
   end

@@ -9,7 +9,7 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def show
-    @author = Author.find(params[:id])
+    @author = Author.find_by_permalink(params[:id])
   end
 
   def new
@@ -17,7 +17,7 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def edit
-    @author = Author.find(params[:id])
+    @author = Author.find_by_permalink(params[:id])
   end
 
   def create
@@ -33,7 +33,7 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def update
-    @author = Author.find(params[:id])
+    @author = Author.find_by_permalink(params[:id])
 
     if @author.update_attributes(params[:author])
       redirect_to admin_authors_url
@@ -44,7 +44,7 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def destroy
-    @author = Author.find(params[:id])
+    @author = Author.find_by_permalink(params[:id])
     @author.destroy
     redirect_to admin_authors_url
   end

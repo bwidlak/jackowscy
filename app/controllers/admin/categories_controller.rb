@@ -9,7 +9,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find_by_permalink(params[:id])
   end
 
   def new
@@ -17,7 +17,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category = Category.find_by_permalink(params[:id])
   end
 
   def create
@@ -33,7 +33,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
+    @category = Category.find_by_permalink(params[:id])
 
     if @category.update_attributes(params[:category])
       redirect_to admin_categories_url
@@ -45,7 +45,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = Category.find_by_permalink(params[:id])
     @category.destroy
     redirect_to admin_categories_url
   end
