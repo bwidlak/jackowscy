@@ -1,24 +1,12 @@
 module LayoutHelper
 
-  def body_class
-    [@body_class || controller.action_name].join(' ')
-  end
-  
-  def body_tag(options={}, &block)
-    options = {
-                :id => controller.controller_name,
-                :class => body_class
-              }.merge(options)
-    content_tag(:body, options, &block)
+  def page_title_tag
+    !@content_for_title.blank? ? @content_for_title : "Galeria Sztuki Jackowscy"
   end
 
-  def page_title(title, show_title = true)
-    @content_for_title = title.to_s
-    @show_title = show_title
+  def page_title(title)
+    main = " - Galeria Sztuki Jackowscy"
+    @content_for_title = title.to_s + main
   end
   
-  def show_title?
-    @show_title
-  end
-
 end
