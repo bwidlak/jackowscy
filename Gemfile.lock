@@ -56,7 +56,6 @@ GEM
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
-    fastimage (1.2.9)
     fssm (0.2.7)
     haml (3.1.3)
     heroku (2.11.1)
@@ -132,6 +131,7 @@ GEM
     sqlite3 (1.3.4)
     sqlite3-ruby (1.3.3)
       sqlite3 (>= 1.3.3)
+    stringex (1.3.0)
     taps (0.3.23)
       rack (>= 1.0.1)
       rest-client (< 1.7.0, >= 1.4.0)
@@ -164,7 +164,6 @@ DEPENDENCIES
   compass (~> 0.12.alpha.0)
   compass-960-plugin
   devise
-  fastimage
   haml (~> 3.1.2)
   heroku
   jquery-rails
@@ -176,6 +175,7 @@ DEPENDENCIES
   sass-rails
   simple_form
   sinatra (= 1.0)
+  stringex
   taps
   tinymce-rails
   turn
