@@ -5,4 +5,15 @@ class Category < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
   
+  before_save :create_permalink
+  
+  def to_param
+    "#{permalink}"
+  end
+  
+  private
+
+  def create_permalink
+    self.permalink = name.to_url
+  end  
 end
