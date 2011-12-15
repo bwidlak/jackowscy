@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111203213739) do
+ActiveRecord::Schema.define(:version => 20111214140513) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink"
   end
 
   create_table "blogs", :force => true do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20111203213739) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "visible"
+    t.string   "permalink"
   end
 
   create_table "categories_projects", :id => false, :force => true do |t|
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20111203213739) do
     t.integer  "author_id"
     t.float    "price"
     t.string   "size"
+    t.string   "permalink"
   end
 
   create_table "users", :force => true do |t|
