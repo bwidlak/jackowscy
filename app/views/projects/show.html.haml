@@ -7,7 +7,7 @@
   .back
     = link_to 'Wróć', projects_path
   %figure.project_img
-    = image_tag @image.large_url, :width => '804px'
+    = image_tag @image.large_url, :width => '758px', :border => '0', :alt => @project.name, :title => @project.name
   .details
     %p.title= @project.author.name
     %p.name= @project.name
