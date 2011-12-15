@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_permalink(params[:id])
     @images = @project.images
     @image = @project.images.first
-    @other_projects = @project.author.projects.paginate(:page => params[:page], :conditions => ["id!='%s'", params[:id]], :per_page => 6)
+    @other_projects = @project.author.projects.paginate(:page => params[:page], :conditions => ["permalink!='%s'", params[:id]], :per_page => 6)
   end
 
   def load_categories
