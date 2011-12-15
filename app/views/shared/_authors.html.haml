@@ -1,5 +1,5 @@
 #authors
   %ul
     - @filter_authors.each do |author|
-      %li{ :class => request.path =~ /autorzy\/#{author.id}/ ? "selected" : "not-selected" }
+      %li{ :class => request.path =~ /autorzy\/#{author.permalink}/ ? "selected" : "not-selected" }
         = link_to author.name, author
