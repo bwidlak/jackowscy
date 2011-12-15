@@ -1,7 +1,9 @@
 !!! 5
 %html
   %head
-    %title Galeria Sztuki Jackowscy
+    %title
+      = raw ( @content_for_title || "") if show_title?
+      = ' - Galeria Sztuki Jackowscy'
     = stylesheet_link_tag "application", "blog"
     = javascript_include_tag "application"
     =# stylesheet_link_tag 'facebox'
