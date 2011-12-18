@@ -1,13 +1,11 @@
 !!! 5
 %html
   %head
-  %title Jackowscy
-  = stylesheet_link_tag "admin"
-  = javascript_include_tag "application"
-  =# stylesheet_link_tag 'facebox'
-  = csrf_meta_tags
-  %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
-  // Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/
+    %title Jackowscy
+    = stylesheet_link_tag "admin"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
 
   %body#admin
     #container
