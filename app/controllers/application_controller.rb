@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def filter_authors
-    @filter_authors = Author.find(:all)[0..7]
+    @filter_authors = Author.find(:all)
   end
   
 end
