@@ -16,7 +16,7 @@ Jackowscy::Application.routes.draw do
   end
 
   scope(:path_names => { :new => "nowy", :edit => "edytuj" }) do
-    resources :authors, :path => "autorzy", :only => [:show]
+    resources :authors, :path => "autorzy", :only => [:show, :xxx]
   end
 
   scope(:path_names => { :new => "nowe", :edit => "edytuj" }) do
@@ -31,6 +31,9 @@ Jackowscy::Application.routes.draw do
     end
     resources :authors, :path => "autorzy"
   end
+  
+  match 'kategorie/dropdown_category' => 'categories#dropdown_category'
+  match 'autorzy/dropdown_author' => 'authors#dropdown_author'
 
   root :to => "home#show"
 

@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
   
   def filter_categories
     @filter_main_categories = Category.find(:all, :conditions => { :visible => true })[0..3]
-    @filter_sub_categories = Category.all - @filter_main_categories
+    @filter_sub_categories = Category.find(:all, :order => "name ASC") - @filter_main_categories
   end
 
   def filter_authors
-    @filter_authors = Author.find(:all)
+    @authors = Author.find(:all, :order => "name ASC")
   end
   
 end
