@@ -2,4 +2,4 @@
   = form_for :author, :url => { :controller => "authors", :action => "dropdown_author"} do |f|
     %fieldset
       %legend Wybierz autora:
-      = select_tag "author", options_for_select(@authors.map {|a| [a.name, a.permalink]}), :onchange => "this.form.submit();", :prompt => "Wybierz autora"
+      = select_tag "author", options_for_select(@authors.map {|a| [a.name, a.permalink]}), :onchange => "this.form.submit();", :prompt => "Wybierz autora", :id => 'authors'
