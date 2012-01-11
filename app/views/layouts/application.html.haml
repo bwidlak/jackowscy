@@ -17,6 +17,7 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+      
   %body{ :lang => "pl"}
 
     %header#masthead
@@ -36,6 +37,15 @@
         = yield :aside
       %section#content
         = yield
+        :javascript
+          $("a.project_hover").hover(
+            function(){
+              $(this).children("div.cover").fadeIn();
+            },
+            function(){
+              $(this).children("div.cover").fadeOut();
+            }
+          );
     %footer
       Galeria sztuki Jackowscy
       %p sendgrid

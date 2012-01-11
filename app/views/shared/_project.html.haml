@@ -21,13 +21,3 @@
             = number_to_currency project.price
           .name
             = project.name
-
-:javascript
-  $("a.project_hover").hover(
-    function(){
-      $(this).children("div.cover").fadeIn();
-    },
-    function(){
-      $(this).children("div.cover").fadeOut();
-    }
-  );
