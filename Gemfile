@@ -25,9 +25,9 @@ end
 
 #frontend-stuff
 gem "haml", "~> 3.1.2"
-gem "compass", "~> 0.12.alpha.0"
+gem "compass", "0.12.alpha.4"
 gem "compass-960-plugin"
-gem 'sass', '~> 3.1.5'
+gem 'sass', '3.1.12'
 gem 'will_paginate', '~> 3.0'
 gem 'sass-rails'
 gem 'tinymce-rails'
