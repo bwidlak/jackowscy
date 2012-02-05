@@ -1,0 +1,28 @@
+- content_for :javascript do
+  %script{ :type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=#{GOOGLE_KEY_API}&sensor=false"}
+
+- content_for :aside do
+  %h4 Adres
+  Galeria Sztuki Jackowscy
+  ul. Sienkiewicza 10/12A
+  Kielce 25-333 
+  tel 41 341 73 93
+
+  galeriajackowscy@gmail.com
+
+  Czynne
+  Wt. - Czw.: 11:00 - 20:00
+  Pt. - Niedz.: 11:00 - 22:00
+  
+#map_canvas{ :style => "width:100%; height:100%" }
+
+:javascript
+  function initialize() {
+    var myOptions = {
+      center: new google.maps.LatLng(-34.397, 150.644),
+      zoom: 8,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+  }

@@ -4,6 +4,7 @@
     %title= page_title_tag
     = stylesheet_link_tag "application", "blog"
     = javascript_include_tag "application"
+    = yield :javascript
     = csrf_meta_tags
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
     // Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/
@@ -18,7 +19,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
       
-  %body{ :lang => "pl"}
+  %body{ :lang => "pl", :onload => "initialize()" }
 
     %header#masthead
       %nav

@@ -32,6 +32,8 @@ Jackowscy::Application.routes.draw do
     resources :authors, :path => "autorzy"
   end
   
+  match 'kontakt' => 'pages#contact'
+  
   match 'kategorie/dropdown_category' => 'categories#dropdown_category'
   match 'autorzy/dropdown_author' => 'authors#dropdown_author'
 
