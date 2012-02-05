@@ -1,18 +1,24 @@
 - content_for :aside do
-  %h4 Adres
-  Galeria Sztuki Jackowscy
-  ul. Sienkiewicza 10/12A
-  Kielce 25-333 
-  tel 41 341 73 93
+  #address
+    %h2 Adres
+    %p
+      Galeria Sztuki Jackowscy
+      %br/
+      ul. Sienkiewicza 10/12A
+      %br/
+      Kielce 25-333
+      %br/
+      tel 41 341 73 93
 
-  galeriajackowscy@gmail.com
+    %p
+      =link_to 'galeriajackowscy@gmail.com', "mailto:galeriajackowscy@gmail.com"
 
-  Czynne
-  Wt. - Czw.: 11:00 - 20:00
-  Pt. - Niedz.: 11:00 - 22:00
+    %p
+      Czynne:
+      %br/
+      Wt. - Czw.: 11:00 - 20:00
+      %br/
+      Pt. - Niedz.: 11:00 - 22:00
 
-%iframe{ :width => "782", :height => "252", :frameborder => "0", :scrolling => "no", :marginheight => "0", :marginwidth => "0", :src => "http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Henryka+Sienkiewicza+22+Kielce&amp;aq=&amp;sll=53.800651,-4.064941&amp;sspn=23.701453,54.228516&amp;ie=UTF8&amp;hq=&amp;hnear=Henryka+Sienkiewicza+22,+Kielce,+%C5%9Bwi%C4%99tokrzyskie,+Poland&amp;t=m&amp;z=14&amp;ll=50.870184,20.631327&amp;output=embed"}
-  %br/
-  %small
-    %a{ :href => "http://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Henryka+Sienkiewicza+22+Kielce&amp;aq=&amp;sll=53.800651,-4.064941&amp;sspn=23.701453,54.228516&amp;ie=UTF8&amp;hq=&amp;hnear=Henryka+Sienkiewicza+22,+Kielce,+%C5%9Bwi%C4%99tokrzyskie,+Poland&amp;t=m&amp;z=14&amp;ll=50.870184,20.631327",  :style => "color:#0000FF;text-align:left" }
-      View Larger Map
+:erb
+  <iframe width="758" height="252" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Henryka+Sienkiewicza+22+Kielce&amp;aq=&amp;sll=53.800651,-4.064941&amp;sspn=23.701453,54.228516&amp;ie=UTF8&amp;hq=&amp;hnear=Henryka+Sienkiewicza+22,+Kielce,+%C5%9Bwi%C4%99tokrzyskie,+Poland&amp;t=m&amp;ll=50.870166,20.631166&amp;spn=0.003412,0.016243&amp;z=16&amp;iwloc=B&amp;output=embed"></iframe>
