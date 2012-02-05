@@ -25,7 +25,7 @@
       %nav
         %ul{ :class => controller_name }
           %li.home= link_to "Strona główna", root_path
-          %li.projects= link_to "Obrazy", projects_path
+          %li.projects= link_to "Galeria", projects_path
           %li.blogs= link_to "Wydarzenia", blogs_path
           %li.contact= link_to "Kontakt", kontakt_path
           -if user_signed_in?
