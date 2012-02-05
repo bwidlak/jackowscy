@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by_permalink(params[:id])
-    @projects = @category.projects
+    @projects = @category.projects.paginate(:page => params[:page], :per_page => 11)
   end
 
   def edit

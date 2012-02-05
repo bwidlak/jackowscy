@@ -7,3 +7,4 @@
   = @category.name
 - @projects.each do |project|
   = render :partial => 'shared/project', :locals => { :project => project}
+= will_paginate @projects

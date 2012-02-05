@@ -12,6 +12,10 @@ class Project < ActiveRecord::Base
   
   self.per_page = 10
 
+  scope :home, :conditions => {:home => true }
+  scope :published, :conditions => {:status => true }
+  scope :recent, published.order("updated_at desc")
+
   def only_visible
   end
 
